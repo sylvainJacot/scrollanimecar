@@ -1,13 +1,42 @@
 import styled from "styled-components";
+import { useRef, useEffect } from "react";
+import { gsap } from "gsap";
 import MustangPicture from "./images/low-key-Mustang-Toy-1423495-pxhere.com.jpg";
 import MustangPicture2 from "./images/low-key-Mustang-Toy-1423495.jpg";
 
 const MainPicHeader = () => {
+  let mainPicHeaderRef = useRef(null);
+  let secondMainPicHeaderRef = useRef(null);
+  let title = useRef(null);
+  let timeLine = gsap.timeline();
+
+  useEffect(() => {
+    timeLine
+      .to(mainPicHeaderRef.current, {
+        duration: 0.6,
+        width: 100 + "%",
+        height: 100 + "vh",
+        opacity: 1,
+      })
+      .to(secondMainPicHeaderRef.current, {
+        duration: 0.6,
+        opacity: 1,
+      })
+      .to(title.current, {
+        duration: 0.3,
+        opacity: 1,
+        translateY: 0,
+      });
+  });
+
   return (
     <>
-      <Container>
-        <h1>MUSTANG</h1>
+      <Container ref={mainPicHeaderRef}>
+        <h1 ref={title}>MUSTANG</h1>
         <p>Photo by Amos Michael form PxHere</p>
+        <MainPicHeaderOverlay
+          ref={secondMainPicHeaderRef}
+        ></MainPicHeaderOverlay>
       </Container>
     </>
   );
@@ -17,22 +46,12 @@ export default MainPicHeader;
 
 export const Container = styled.div`
   position: relative;
-  width: 100%;
-  height: 100vh;
+  width: 90%;
+  height: 90vh;
   background: black url(${MustangPicture}) center no-repeat;
   background-size: contain;
-
-  &::before {
-    position: absolute;
-    display: block;
-    content: "";
-    width: 100%;
-    height: 100%;
-    background: black url(${MustangPicture2}) center no-repeat;
-    background-size: contain;
-    opacity: 0;
-  }
-
+  transform-origin: center;
+  opacity: 0;
   & h1 {
     display: block;
     color: white;
@@ -41,17 +60,19 @@ export const Container = styled.div`
     top: 120px;
     margin: 0;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -24px);
     text-align: center;
     letter-spacing: 8px;
+    z-index: 1;
+    opacity: 0;
 
     &::after {
       position: absolute;
       display: block;
       content: "";
       width: calc(100% - 8px);
-      height: 4px;
-      background-color: rebeccapurple;
+      height: 0.5px;
+      background-color: white;
       transform: translateY(16px);
     }
   }
@@ -62,5 +83,17 @@ export const Container = styled.div`
     position: absolute;
     bottom: 8px;
     right: 16px;
+    z-index: 1;
   }
+`;
+export const MainPicHeaderOverlay = styled.div`
+  position: absolute;
+  display: block;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: black url(${MustangPicture2}) center no-repeat;
+  background-size: contain;
+  opacity: 0;
+  z-index: 0;
 `;
