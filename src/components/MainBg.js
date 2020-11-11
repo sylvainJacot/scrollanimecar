@@ -46,4 +46,6 @@ export const Box = styled.div`
   background-color: #4659ba;
   opacity: 1;
   margin-top: 0;
+  overflow:hidden;
+  border-radius: 0px;
 `;

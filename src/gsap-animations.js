@@ -8,6 +8,7 @@ export const MainBgAnim = (MainBGRef) => {
     duration: 1,
     width: "50%",
     marginTop: 80,
+    borderRadius: 8,
     ease: Power3.easeIn,
     delay: 2,
   });
@@ -25,7 +26,8 @@ export const MainPicAnimStart = (
       opacity: 1,
       ease: Power3.easeOut,
     })
-    .to( MainTitleRef.current,
+    .to(
+      MainTitleRef.current,
       {
         duration: 0.3,
         opacity: 1,
@@ -45,12 +47,13 @@ export const MainPicAnimStart = (
     );
 };
 
-export const MainPicAnimEnd = (
-  MainTitleRef,
-) => {
-    MainBgtimeLine.to(MainTitleRef.current, {
-    duration: 1,
+export const MainPicAnimEnd = (MainTitleRef) => {
+  MainBgtimeLine.to(MainTitleRef.current, {
+    delay: 0.3,
+    duration: 2,
     ease: Power3.easeOut,
-    fontSize: 120,
+    y: 200,
+    fontSize: 104,
+    textShadow: "3px 3px 10px rgba(0, 0, 0, 1)",
   });
 };
