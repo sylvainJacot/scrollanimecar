@@ -1,25 +1,37 @@
 import { useRef, useEffect } from "react";
+import { gsap } from "gsap";
 import styled from "styled-components";
 import MainPicHeader from "./MainPicHeader";
-import { gsap, Power3 } from "gsap";
+import {
+  MainBgAnim,
+  MainPicAnimStart,
+  MainPicAnimEnd
+} from "../gsap-animations";
 
 const MainBG = () => {
+  let MainTitleRef = useRef(null);
+  let UnderlineRef = useRef(null);
   let MainBGRef = useRef(null);
+  let MustangPictureRef = useRef(null);
+  let MustangPictureOverlayRef = useRef(null);
 
-  let timeLine = gsap.timeline();
+  const timeLine = gsap.timeline();
 
-  // useEffect(() => {
-  //   timeLine.to(MainBGRef.current, {
-  //     duration: 1,
-  //     width: "50%",
-  //     ease: Power3.easeIn,
-  //   });
-  // });
+  useEffect(() => {
+    timeLine.add(MainPicAnimStart(MustangPictureOverlayRef, MainTitleRef, UnderlineRef));
+    timeLine.add(MainBgAnim(MainBGRef));
+    timeLine.add(MainPicAnimEnd(MainTitleRef));
+  });
 
   return (
     <>
       <Box ref={MainBGRef}>
-        <MainPicHeader />
+        <MainPicHeader
+          UnderlineRef={UnderlineRef}
+          MainTitleRef={MainTitleRef}
+          MustangPictureRef={MustangPictureRef}
+          MustangPictureOverlayRef={MustangPictureOverlayRef}
+        />
       </Box>
     </>
   );
@@ -33,4 +45,5 @@ export const Box = styled.div`
   margin: auto;
   background-color: #4659ba;
   opacity: 1;
+  margin-top: 0;
 `;
