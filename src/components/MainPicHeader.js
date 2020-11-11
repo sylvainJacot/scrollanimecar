@@ -1,99 +1,76 @@
 import styled from "styled-components";
 import { useRef, useEffect } from "react";
-import { gsap } from "gsap";
-import MustangPicture from "./images/low-key-Mustang-Toy-1423495-pxhere.com.jpg";
-import MustangPicture2 from "./images/low-key-Mustang-Toy-1423495.jpg";
+import { gsap, Power3 } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import MustangPictureSrc from "./images/low-key-Mustang-Toy-1423495-pxhere.com.jpg";
+import MustangPictureSrc2 from "./images/low-key-Mustang-Toy-1423495.jpg";
+import MainTitle from "./Title/MainTitle";
 
 const MainPicHeader = () => {
-  let mainPicHeaderRef = useRef(null);
-  let secondMainPicHeaderRef = useRef(null);
-  let title = useRef(null);
+  gsap.registerPlugin(ScrollTrigger);
+
+  let MustangPictureRef = useRef(null);
+  let MustangPictureOverlayRef = useRef(null);
+  // let title = useRef(null);
+  // let UnderlineRef = useRef(null);
+
   let timeLine = gsap.timeline();
 
   useEffect(() => {
-    timeLine
-      .to(mainPicHeaderRef.current, {
-        duration: 0.6,
-        width: 100 + "%",
-        height: 100 + "vh",
-        opacity: 1,
-      })
-      .to(secondMainPicHeaderRef.current, {
-        duration: 0.6,
-        opacity: 1,
-      })
-      .to(title.current, {
-        duration: 0.3,
-        opacity: 1,
-        translateY: 0,
-      });
+    timeLine.to(MustangPictureOverlayRef.current, {
+      delay: 1,
+      duration: 0.6,
+      opacity: 1,
+      ease: Power3.easeOut,
+    });
   });
 
   return (
     <>
-      <Container ref={mainPicHeaderRef}>
-        <h1 ref={title}>MUSTANG</h1>
-        <p>Photo by Amos Michael form PxHere</p>
-        <MainPicHeaderOverlay
-          ref={secondMainPicHeaderRef}
-        ></MainPicHeaderOverlay>
-      </Container>
+      <MustangPictureMask>
+        <Underline></Underline>
+        <MainTitle />
+        <MustangPicture src={MustangPictureSrc} ref={MustangPictureRef} />
+        <MustangPictureOverlay
+          src={MustangPictureSrc2}
+          ref={MustangPictureOverlayRef}
+        />
+      </MustangPictureMask>
     </>
   );
 };
 
 export default MainPicHeader;
 
-export const Container = styled.div`
+export const MustangPictureMask = styled.div`
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
   position: relative;
-  width: 90%;
-  height: 90vh;
-  background: black url(${MustangPicture}) center no-repeat;
-  background-size: contain;
-  transform-origin: center;
-  opacity: 0;
-  & h1 {
-    display: block;
-    color: white;
-    font-size: 32px;
-    position: absolute;
-    top: 120px;
-    margin: 0;
-    left: 50%;
-    transform: translate(-50%, -24px);
-    text-align: center;
-    letter-spacing: 8px;
-    z-index: 1;
-    opacity: 0;
 
-    &::after {
-      position: absolute;
-      display: block;
-      content: "";
-      width: calc(100% - 8px);
-      height: 0.5px;
-      background-color: white;
-      transform: translateY(16px);
-    }
-  }
-
-  & p {
-    font-size: 10px;
-    color: white;
+  & img {
     position: absolute;
-    bottom: 8px;
-    right: 16px;
-    z-index: 1;
+    width: 100%;
+    height: auto;
+    transform: translateY(-120px);
   }
 `;
-export const MainPicHeaderOverlay = styled.div`
+
+export const MustangPicture = styled.img``;
+
+export const MustangPictureOverlay = styled.img`
+  opacity: 0;
+`;
+
+export const Underline = styled.div`
   position: absolute;
   display: block;
   content: "";
-  width: 100%;
-  height: 100%;
-  background: black url(${MustangPicture2}) center no-repeat;
-  background-size: contain;
-  opacity: 0;
-  z-index: 0;
+  width: 236px;
+  height: 8px;
+  background-color: red;
+  z-index: 1;
+  top: 0;
+  left: calc(50% - 4px);
+  transform: translate(-50%, -50%);
 `;

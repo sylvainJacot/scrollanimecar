@@ -1,12 +1,13 @@
 import styled from "styled-components";
-import MainPicHeader from "./components/MainPicHeader";
 import { GlobalStyle } from "./components/GlobalStyle";
+import MainPicHeader from "./components/MainPicHeader";
+import MainBG from "./components/MainBg";
 
 function App() {
   return (
     <AppBox>
       <GlobalStyle />
-      <MainPicHeader />
+      <MainBG />
     </AppBox>
   );
 }
@@ -14,9 +15,9 @@ function App() {
 export default App;
 
 export const AppBox = styled.div`
-  height: 100vh;
-  display: flex;
+  /* display: flex; */
+  /* flex-direction: column;
   justify-content: center;
-  align-items: center;
-  background-color: black;
+  align-items: center; */
+  background-color: lightgray;
 `;
