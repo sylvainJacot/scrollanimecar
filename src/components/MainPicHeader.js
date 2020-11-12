@@ -1,18 +1,29 @@
 import styled from "styled-components";
 import MustangPictureSrc from "./images/low-key-Mustang-Toy-1423495-pxhere.com.jpg";
 import MustangPictureSrc2 from "./images/low-key-Mustang-Toy-1423495.jpg";
+import FirstBlock from "../components/Blocks/FirstBlock";
+import FirstWhiteBlock from "./Blocks/FirstWhiteBlock";
 
 const MainPicHeader = (props) => {
   return (
     <>
-      <MustangPictureMask>
+      <MustangPictureMask ref={props.MustangPictureMaskRef}>
+
         <Underline ref={props.UnderlineRef}></Underline>
+
         <MainTitle ref={props.MainTitleRef}>MUSTANG</MainTitle>
+
+        <FirstBlock FirstBlockRef={props.FirstBlockRef} />
+
+        <FirstWhiteBlock FirstWhiteBlockRef={props.FirstWhiteBlockRef} />
+
         <MustangPicture src={MustangPictureSrc} ref={props.MustangPictureRef} />
+
         <MustangPictureOverlay
           src={MustangPictureSrc2}
           ref={props.MustangPictureOverlayRef}
         />
+
       </MustangPictureMask>
     </>
   );
@@ -35,7 +46,7 @@ export const MustangPictureMask = styled.div`
     font-weight: 600;
     letter-spacing: 8px;
     color: white;
-    z-index: 1;
+    z-index: 2;
     right: 0;
     left: 0;
     text-align: center;
@@ -59,14 +70,18 @@ export const MustangPictureMask = styled.div`
 
   & img {
     position: absolute;
-    width: 100%;
     height: auto;
-    transform: translateY(-120px);
+    left: 50%;
+    transform: translate(-50%,-120px);
+    transform-origin: center;
   }
 `;
 
-export const MustangPicture = styled.img``;
+export const MustangPicture = styled.img`
+  width: 100%;
+`;
 
 export const MustangPictureOverlay = styled.img`
   opacity: 0;
+  width: 100%;
 `;

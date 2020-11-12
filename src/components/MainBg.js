@@ -2,11 +2,7 @@ import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import styled from "styled-components";
 import MainPicHeader from "./MainPicHeader";
-import {
-  MainBgAnim,
-  MainPicAnimStart,
-  MainPicAnimEnd
-} from "../gsap-animations";
+import {MainPicAnimStart} from "../gsap-animations";
 
 const MainBG = () => {
   let MainTitleRef = useRef(null);
@@ -14,23 +10,33 @@ const MainBG = () => {
   let MainBGRef = useRef(null);
   let MustangPictureRef = useRef(null);
   let MustangPictureOverlayRef = useRef(null);
+  let MustangPictureMaskRef = useRef(null);
+  let FirstBlockRef = useRef(null);
+  let FirstWhiteBlockRef = useRef(null);
 
   const timeLine = gsap.timeline();
 
   useEffect(() => {
-    timeLine.add(MainPicAnimStart(MustangPictureOverlayRef, MainTitleRef, UnderlineRef));
-    timeLine.add(MainBgAnim(MainBGRef));
-    timeLine.add(MainPicAnimEnd(MainTitleRef));
+    timeLine.add(MainPicAnimStart(  MustangPictureOverlayRef,
+      MainTitleRef,
+      UnderlineRef,
+      MainBGRef,
+      MustangPictureMaskRef,
+      FirstBlockRef,
+      FirstWhiteBlockRef));
   });
 
   return (
     <>
       <Box ref={MainBGRef}>
         <MainPicHeader
+          MustangPictureMaskRef={MustangPictureMaskRef}
           UnderlineRef={UnderlineRef}
           MainTitleRef={MainTitleRef}
           MustangPictureRef={MustangPictureRef}
           MustangPictureOverlayRef={MustangPictureOverlayRef}
+          FirstBlockRef={FirstBlockRef}
+          FirstWhiteBlockRef={FirstWhiteBlockRef}
         />
       </Box>
     </>
@@ -43,9 +49,9 @@ export const Box = styled.div`
   width: 100%;
   height: 2000px;
   margin: auto;
-  background-color: #4659ba;
+  background-color: #494d60;
   opacity: 1;
   margin-top: 0;
-  overflow:hidden;
+  overflow: hidden;
   border-radius: 0px;
 `;
