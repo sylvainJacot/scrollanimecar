@@ -42,7 +42,7 @@ export const MainPicAnimStart = (
       ">-1"
     )
     .to(UnderlineRef.current, {
-      delay: 3,
+      delay: 1.6,
       opacity: 0,
       duration: 0.3,
       ease: Power2.easeOut,
@@ -72,7 +72,7 @@ export const MainPicAnimStart = (
         top: "40%",
         ease: Power2.easeOut,
       },
-      ">-3"
+      ">-2"
     )
     .to(
       MustangPictureMaskRef.current,
@@ -81,12 +81,12 @@ export const MainPicAnimStart = (
         height: "400px",
         ease: Power2.easeOut,
       },
-      "-=3"
+      "-=4"
     )
     .to(
       FirstBlockRef.current,
       {
-        duration: 2,
+        duration: 1.3,
         visibility: "visible",
         translateX: "40%",
         ease: Power2.easeOut,
@@ -101,7 +101,7 @@ export const MainPicAnimStart = (
         translateX: "-8%",
         ease: Power2.easeOut,
       },
-      ">-2"
+      ">-1"
     );
 };
 

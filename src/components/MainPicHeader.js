@@ -8,13 +8,13 @@ const MainPicHeader = (props) => {
   return (
     <>
     <Wrapper>
-      <MustangPictureMask ref={props.MustangPictureMaskRef}>
-        <MustangPicture src={MustangPictureSrc} ref={props.MustangPictureRef} />
+        <MustangPictureMask ref={props.MustangPictureMaskRef}>
+          <MustangPicture src={MustangPictureSrc} ref={props.MustangPictureRef} />
 
-        <MustangPictureOverlay
-          src={MustangPictureSrc2}
-          ref={props.MustangPictureOverlayRef}
-        />
+          <MustangPictureOverlay
+            src={MustangPictureSrc2}
+            ref={props.MustangPictureOverlayRef}
+          />
       </MustangPictureMask>
 
       <Underline ref={props.UnderlineRef}></Underline>

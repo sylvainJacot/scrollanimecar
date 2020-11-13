@@ -12,12 +12,12 @@ export default FirstBlock;
 
 export const Container = styled.div`
   position: absolute;
-  width: 400px;
   height: 320px;
-  background-color: #494d60;
-  transform: translateX(190%);
-  top: 44%;
+  width: 560px;
+  top: 270px;
+  transform: translateX(200%);
+  background-color: red;
   z-index: 1;
-  box-shadow: 10px 10px 26px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 26px 0px rgba(0, 0, 0, 0.3);
   visibility: hidden;
 `;
