@@ -11,8 +11,8 @@ const FirstWhiteBlock = (props) => {
 export default FirstWhiteBlock;
 
 export const Container = styled.div`
-  position: fixed;
-  width: 40%;
+  position: absolute;
+  width: 400px;
   height: 320px;
   background-color: white;
   transform: translateX(-200%);

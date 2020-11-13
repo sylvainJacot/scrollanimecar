@@ -7,72 +7,47 @@ import FirstWhiteBlock from "./Blocks/FirstWhiteBlock";
 const MainPicHeader = (props) => {
   return (
     <>
+    <Wrapper>
       <MustangPictureMask ref={props.MustangPictureMaskRef}>
-
-        <Underline ref={props.UnderlineRef}></Underline>
-
-        <MainTitle ref={props.MainTitleRef}>MUSTANG</MainTitle>
-
-        <FirstBlock FirstBlockRef={props.FirstBlockRef} />
-
-        <FirstWhiteBlock FirstWhiteBlockRef={props.FirstWhiteBlockRef} />
-
         <MustangPicture src={MustangPictureSrc} ref={props.MustangPictureRef} />
 
         <MustangPictureOverlay
           src={MustangPictureSrc2}
           ref={props.MustangPictureOverlayRef}
         />
-
       </MustangPictureMask>
+
+      <Underline ref={props.UnderlineRef}></Underline>
+      <MainTitle ref={props.MainTitleRef}>MUSTANG</MainTitle>
+      <FirstBlock FirstBlockRef={props.FirstBlockRef} />
+      <FirstWhiteBlock FirstWhiteBlockRef={props.FirstWhiteBlockRef} />
+
+      </Wrapper>
     </>
   );
 };
 
 export default MainPicHeader;
 
-export const MainTitle = styled.h1``;
-export const Underline = styled.div``;
+export const Wrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  border: 1px solid red;
+  position: relative;
+`;
 
 export const MustangPictureMask = styled.div`
   width: 100%;
   height: 100vh;
-  overflow: hidden;
   position: relative;
-
-  & ${MainTitle} {
-    position: absolute;
-    font-size: 40px;
-    font-weight: 600;
-    letter-spacing: 8px;
-    color: white;
-    z-index: 2;
-    right: 0;
-    left: 0;
-    text-align: center;
-    opacity: 0;
-    margin: 0;
-    transform: translateY(-0px);
-  }
-
-  & ${Underline} {
-    position: absolute;
-    display: block;
-    content: "";
-    height: 8px;
-    background-color: red;
-    z-index: 1;
-    top: 0;
-    left: calc(50% - 4px);
-    transform: translate(-50%, -50%);
-    width: 0;
-  }
+  overflow: hidden;
 
   & img {
     position: absolute;
     height: auto;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%,-120px);
+    transform: translate(-50%, -50%);
     transform-origin: center;
   }
 `;
@@ -85,3 +60,33 @@ export const MustangPictureOverlay = styled.img`
   opacity: 0;
   width: 100%;
 `;
+
+
+export const MainTitle = styled.h1`
+    position: absolute;
+    font-size: 40px;
+    font-weight: 600;
+    letter-spacing: 8px;
+    color: white;
+    z-index: 2;
+    top: -32px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    opacity: 0;
+    margin: 0;
+`;
+export const Underline = styled.div`
+    position: absolute;
+    display: block;
+    content: "";
+    height: 8px;
+    background-color: red;
+    z-index: 1;
+    top: 0;
+    left: calc(50% - 4px);
+    transform: translate(-50%, -50%);
+    width: 0;
+    opacity: 0;
+`;
+

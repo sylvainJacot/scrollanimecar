@@ -2,7 +2,8 @@ import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import styled from "styled-components";
 import MainPicHeader from "./MainPicHeader";
-import {MainPicAnimStart} from "../gsap-animations";
+import {MainPicAnimStart, SecondPartAnim} from "../gsap-animations";
+import TestBlock from "./Blocks/TestBlock";
 
 const MainBG = () => {
   let MainTitleRef = useRef(null);
@@ -13,6 +14,8 @@ const MainBG = () => {
   let MustangPictureMaskRef = useRef(null);
   let FirstBlockRef = useRef(null);
   let FirstWhiteBlockRef = useRef(null);
+  let TestBlockRef = useRef(null);
+  
 
   const timeLine = gsap.timeline();
 
@@ -23,7 +26,8 @@ const MainBG = () => {
       MainBGRef,
       MustangPictureMaskRef,
       FirstBlockRef,
-      FirstWhiteBlockRef));
+      FirstWhiteBlockRef))
+      // .add(SecondPartAnim(TestBlockRef))
   });
 
   return (
@@ -38,6 +42,7 @@ const MainBG = () => {
           FirstBlockRef={FirstBlockRef}
           FirstWhiteBlockRef={FirstWhiteBlockRef}
         />
+        <TestBlock TestBlockRef={TestBlockRef}/>
       </Box>
     </>
   );
@@ -52,6 +57,5 @@ export const Box = styled.div`
   background-color: #494d60;
   opacity: 1;
   margin-top: 0;
-  overflow: hidden;
   border-radius: 0px;
 `;

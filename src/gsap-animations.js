@@ -1,4 +1,6 @@
-import { gsap, Power3 } from "gsap";
+import { gsap, Power2 } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 let timeLine = gsap.timeline();
 // let MainBgtimeLine = gsap.timeline();
@@ -17,15 +19,15 @@ export const MainPicAnimStart = (
       delay: 1,
       duration: 0.6,
       opacity: 1,
-      ease: Power3.easeOut,
+      ease: Power2.easeOut,
     })
     .to(
       MainTitleRef.current,
       {
         duration: 0.3,
         opacity: 1,
-        translateY: 40,
-        ease: Power3.easeOut,
+        translateY: 56,
+        ease: Power2.easeOut,
       },
       ">-0,6"
     )
@@ -34,47 +36,50 @@ export const MainPicAnimStart = (
       {
         width: 236,
         duration: 0.6,
-        ease: Power3.easeOut,
+        opacity: 1,
+        ease: Power2.easeOut,
       },
       ">-1"
     )
-    .to(MainBGRef.current, {
-      duration: 2,
-      width: "50%",
-      marginTop: 80,
-      borderRadius: 8,
-      ease: Power3.easeOut,
+    .to(UnderlineRef.current, {
+      delay: 3,
+      opacity: 0,
+      duration: 0.3,
+      ease: Power2.easeOut,
     })
+    .to(MainTitleRef.current, {
+      duration: 2,
+      ease: Power2.easeOut,
+      y: 240,
+      fontSize: 104,
+      textShadow: "3px 3px 10px rgba(0, 0, 0, 1)",
+    })
+    .to(
+      MainBGRef.current,
+      {
+        duration: 3,
+        width: "50%",
+        borderRadius: 8,
+        ease: Power2.easeOut,
+      },
+      ">-2"
+    )
     .to(
       MustangPictureOverlayRef.current,
       {
-        duration: 1,
-        width: "110%",
-        ease: Power3.easeIn,
+        delay: 0.6,
+        duration: 3,
+        top: "40%",
+        ease: Power2.easeOut,
       },
-      "-=2"
-    )
-    .to(MainTitleRef.current, {
-      duration: 2,
-      ease: Power3.easeOut,
-      y: 200,
-      fontSize: 104,
-      textShadow: "3px 3px 10px rgba(0, 0, 0, 1)",
-    },"-=1")
-    .to(
-      UnderlineRef.current,
-      {
-      opacity: 0,
-        ease: Power3.easeOut,
-      },
-      "-=2"
+      ">-3"
     )
     .to(
       MustangPictureMaskRef.current,
       {
         duration: 1,
         height: "400px",
-        ease: Power3.easeOut,
+        ease: Power2.easeOut,
       },
       "-=3"
     )
@@ -84,7 +89,7 @@ export const MainPicAnimStart = (
         duration: 2,
         visibility: "visible",
         translateX: "40%",
-        ease: Power3.easeOut,
+        ease: Power2.easeOut,
       },
       ">-1"
     )
@@ -94,8 +99,25 @@ export const MainPicAnimStart = (
         duration: 2,
         visibility: "visible",
         translateX: "-8%",
-        ease: Power3.easeOut,
+        ease: Power2.easeOut,
       },
       ">-2"
     );
+};
+
+export const SecondPartAnim = (TestBlockRef) => {
+  gsap.to(TestBlockRef.current, {
+    scrollTrigger: {
+      trigger: TestBlockRef.current,
+      // quand le "top" du block touche le "center" du viewport
+      start: "top center",
+      end: "bottom top",
+      scrub: 3,
+      pin: true,
+      markers: true,
+    },
+    duration: 1,
+    translateX: 0,
+    rotate: 360,
+  });
 };
