@@ -3,7 +3,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 let timeLine = gsap.timeline();
-// let MainBgtimeLine = gsap.timeline();
 
 export const MainPicAnimStart = (
   MustangPictureOverlayRef,
@@ -52,7 +51,7 @@ export const MainPicAnimStart = (
       ease: Power2.easeOut,
       y: 240,
       fontSize: 104,
-      textShadow: "3px 3px 10px rgba(0, 0, 0, 1)",
+      textShadow: "3px 3px 10px rgba(0, 0, 0, 0.3)",
     })
     .to(
       MainBGRef.current,
@@ -88,7 +87,7 @@ export const MainPicAnimStart = (
       {
         duration: 1.3,
         visibility: "visible",
-        translateX: "40%",
+        translateX: "-30%",
         ease: Power2.easeOut,
       },
       ">-1"
@@ -98,26 +97,33 @@ export const MainPicAnimStart = (
       {
         duration: 2,
         visibility: "visible",
-        translateX: "-8%",
+        translateX: "-30%",
         ease: Power2.easeOut,
       },
       ">-1"
     );
 };
 
-export const SecondPartAnim = (TestBlockRef) => {
-  gsap.to(TestBlockRef.current, {
-    scrollTrigger: {
-      trigger: TestBlockRef.current,
-      // quand le "top" du block touche le "center" du viewport
-      start: "top center",
-      end: "bottom top",
-      scrub: 3,
-      pin: true,
-      markers: true,
+export const MainPicAnimTrigger = (FirstBlockRef) => {
+  timeLine.fromTo(
+    FirstBlockRef.current,
+    {
+      duration: 1.3,
+      visibility: "visible",
+      translateX: "-30%",
+      ease: Power2.easeOut,
     },
-    duration: 1,
-    translateX: 0,
-    rotate: 360,
-  });
+    {
+      scrollTrigger: {
+        trigger: FirstBlockRef.current,
+        start: "bottom center",
+        end: "bottom 100px",
+        scrub: true,
+        markers: true,
+      },
+      translateX: "-50%",
+      duration: 3,
+      ease: Power2.easeOut,
+    }
+  );
 };

@@ -2,8 +2,8 @@ import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import styled from "styled-components";
 import MainPicHeader from "./MainPicHeader";
-import {MainPicAnimStart, SecondPartAnim} from "../gsap-animations";
-import TestBlock from "./Blocks/TestBlock";
+import {MainPicAnimStart, MainPicAnimTrigger} from "../gsap-animations";
+import TestBlock from "./Blocks/Section 2/TestBlock";
 
 const MainBG = () => {
   let MainTitleRef = useRef(null);
@@ -27,7 +27,7 @@ const MainBG = () => {
       MustangPictureMaskRef,
       FirstBlockRef,
       FirstWhiteBlockRef))
-      // .add(SecondPartAnim(TestBlockRef))
+      .add(MainPicAnimTrigger(FirstBlockRef))
   });
 
   return (
@@ -51,6 +51,7 @@ const MainBG = () => {
 export default MainBG;
 
 export const Box = styled.div`
+position: relative;
   width: 100%;
   height: 2000px;
   margin: auto;
