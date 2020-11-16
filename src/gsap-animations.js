@@ -102,22 +102,31 @@ export const MainPicAnimStart = (
       },
       ">-1"
     )
-    .to(
-    FirstBlockRef.current,
-    {
+    .to(FirstBlockRef.current, {
       scrollTrigger: {
         trigger: FirstBlockRef.current,
         start: "bottom center",
         end: "bottom 100px",
         scrub: true,
-        markers: true,
+        markers: false,
       },
       immediateRender: false,
       translateX: "-50%",
-      duration: 3,
-      ease: Power2.easeOut,
-    }
-  );
+      delay: 1,
+      duration: 2,
+      ease: Power2.easeIn,
+    })
+    .to(FirstWhiteBlockRef.current, {
+      scrollTrigger: {
+        trigger: FirstBlockRef.current,
+        start: "bottom center",
+        end: "bottom 100px",
+        scrub: true,
+        markers: false,
+      },
+      immediateRender: false,
+      translateX: "0%",
+      duration: 2,
+      ease: Power2.easeIn,
+    });
 };
-
-

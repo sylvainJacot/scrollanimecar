@@ -2,8 +2,8 @@ import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import styled from "styled-components";
 import MainPicHeader from "./MainPicHeader";
-import {MainPicAnimStart, MainPicAnimTrigger} from "../gsap-animations";
-import TestBlock from "./Blocks/Section 2/TestBlock";
+import { MainPicAnimStart } from "../gsap-animations";
+import SecondSection from "./Blocks/Section 2/SecondSection";
 
 const MainBG = () => {
   let MainTitleRef = useRef(null);
@@ -14,19 +14,24 @@ const MainBG = () => {
   let MustangPictureMaskRef = useRef(null);
   let FirstBlockRef = useRef(null);
   let FirstWhiteBlockRef = useRef(null);
-  let TestBlockRef = useRef(null);
-  
+  let SeconSectionRef = useRef(null);
+  let SecondBlockRef = useRef(null);
+  let SecondSectionWhiteBGRef = useRef(null);
 
   const timeLine = gsap.timeline();
 
   useEffect(() => {
-    timeLine.add(MainPicAnimStart(  MustangPictureOverlayRef,
-      MainTitleRef,
-      UnderlineRef,
-      MainBGRef,
-      MustangPictureMaskRef,
-      FirstBlockRef,
-      FirstWhiteBlockRef))
+    timeLine.add(
+      MainPicAnimStart(
+        MustangPictureOverlayRef,
+        MainTitleRef,
+        UnderlineRef,
+        MainBGRef,
+        MustangPictureMaskRef,
+        FirstBlockRef,
+        FirstWhiteBlockRef
+      )
+    );
   });
 
   return (
@@ -41,7 +46,11 @@ const MainBG = () => {
           FirstBlockRef={FirstBlockRef}
           FirstWhiteBlockRef={FirstWhiteBlockRef}
         />
-        <TestBlock TestBlockRef={TestBlockRef}/>
+        <SecondSection
+          SeconSectionRef={SeconSectionRef}
+          SecondBlockRef={SecondBlockRef}
+          SecondSectionWhiteBGRef={SecondSectionWhiteBGRef}
+        />
       </Box>
     </>
   );
@@ -50,7 +59,7 @@ const MainBG = () => {
 export default MainBG;
 
 export const Box = styled.div`
-position: relative;
+  position: relative;
   width: 100%;
   height: 2000px;
   margin: auto;
