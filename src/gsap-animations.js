@@ -101,18 +101,9 @@ export const MainPicAnimStart = (
         ease: Power2.easeOut,
       },
       ">-1"
-    );
-};
-
-export const MainPicAnimTrigger = (FirstBlockRef) => {
-  timeLine.fromTo(
+    )
+    .to(
     FirstBlockRef.current,
-    {
-      duration: 1.3,
-      visibility: "visible",
-      translateX: "-30%",
-      ease: Power2.easeOut,
-    },
     {
       scrollTrigger: {
         trigger: FirstBlockRef.current,
@@ -121,9 +112,12 @@ export const MainPicAnimTrigger = (FirstBlockRef) => {
         scrub: true,
         markers: true,
       },
+      immediateRender: false,
       translateX: "-50%",
       duration: 3,
       ease: Power2.easeOut,
     }
   );
 };
+
+

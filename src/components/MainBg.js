@@ -27,7 +27,6 @@ const MainBG = () => {
       MustangPictureMaskRef,
       FirstBlockRef,
       FirstWhiteBlockRef))
-      .add(MainPicAnimTrigger(FirstBlockRef))
   });
 
   return (
