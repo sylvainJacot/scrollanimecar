@@ -2,7 +2,7 @@ import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import styled from "styled-components";
 import MainPicHeader from "./MainPicHeader";
-import { MainPicAnimStart,SecondAnimSection } from "../gsap-animations";
+import { MainPicAnimStart, SecondAnimSection } from "../gsap-animations";
 import SecondSection from "./Blocks/Section 2/SecondSection";
 
 const MainBG = () => {
@@ -14,26 +14,35 @@ const MainBG = () => {
   let MustangPictureMaskRef = useRef(null);
   let FirstBlockRef = useRef(null);
   let FirstWhiteBlockRef = useRef(null);
-  let SeconSectionRef = useRef(null);
+
+  let SecondSectionRef = useRef(null);
   let SecondBlockRef = useRef(null);
-  let SecondSectionWhiteBGRef = useRef(null);
+  let SecondWhiteRef = useRef(null);
   let SecondPicRef = useRef(null);
 
   const timeLine = gsap.timeline();
 
   useEffect(() => {
-    timeLine.add(
-      MainPicAnimStart(
-        MustangPictureOverlayRef,
-        MainTitleRef,
-        UnderlineRef,
-        MainBGRef,
-        MustangPictureMaskRef,
-        FirstBlockRef,
-        FirstWhiteBlockRef
+    timeLine
+      .add(
+        MainPicAnimStart(
+          MustangPictureOverlayRef,
+          MainTitleRef,
+          UnderlineRef,
+          MainBGRef,
+          MustangPictureMaskRef,
+          FirstBlockRef,
+          FirstWhiteBlockRef
+        )
       )
-    )
-    .add(SecondAnimSection(SeconSectionRef,SecondBlockRef,SecondSectionWhiteBGRef,SecondPicRef))
+      .add(
+        SecondAnimSection(
+          SecondSectionRef,
+          SecondBlockRef,
+          SecondWhiteRef,
+          SecondPicRef
+        )
+      );
   });
 
   return (
@@ -49,9 +58,9 @@ const MainBG = () => {
           FirstWhiteBlockRef={FirstWhiteBlockRef}
         />
         <SecondSection
-          SeconSectionRef={SeconSectionRef}
+          SecondSectionRef={SecondSectionRef}
           SecondBlockRef={SecondBlockRef}
-          SecondSectionWhiteBGRef={SecondSectionWhiteBGRef}
+          SecondWhiteRef={SecondWhiteRef}
           SecondPicRef={SecondPicRef}
         />
       </Box>

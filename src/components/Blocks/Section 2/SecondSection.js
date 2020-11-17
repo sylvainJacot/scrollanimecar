@@ -6,14 +6,13 @@ import SecondSectionWhiteBG from "./SecondSectionWhiteBG";
 const SecondSection = (props) => {
   return (
     <>
-      <Container ref={props.SeconSectionRef}>
+      <Container ref={props.SecondSectionRef}>
         z-index 0 parent
-         <SecondBlock SecondBlockRef={props.SecondBlockRef} />
+        <SecondBlock SecondBlockRef={props.SecondBlockRef} />
         <SecondSectionWhiteBG
-          SecondSectionWhiteBGRef={props.SecondSectionWhiteBGRef}
+          SecondWhiteRef={props.SecondWhiteRef}
         />
-        <SecondPic SecondPicRef={props.SecondPicRef}/>
-
+        <SecondPic SecondPicRef={props.SecondPicRef} />
       </Container>
     </>
   );

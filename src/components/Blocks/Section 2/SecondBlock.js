@@ -17,7 +17,8 @@ export const Container = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
+  opacity: 0;
   background-color: yellow;
   z-index: 0;
-  box-shadow: 10px 10px 26px 0px rgba(0,0,0,0.3);
+  transform: translate(176px, 40px);
 `;

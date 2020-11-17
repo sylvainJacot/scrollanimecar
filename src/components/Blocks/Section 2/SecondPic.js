@@ -18,8 +18,8 @@ export const Container = styled.div`
   background-color: blue;
   top: 50%;
   right: -600px;
-  transform: translate(-50%, -50%);
+  transform: translate(140%, 0%);
   z-index: 2;
-  box-shadow: 10px 10px 26px 0px rgba(0,0,0,0.3);
-`;
+  box-shadow: 10px 10px 26px 0px rgba(0, 0, 0, 0.3);
 
+`;

@@ -7,8 +7,8 @@ const FirstScrollTrigger = (ref) => {
   let data = {
     trigger: ref,
     start: "bottom center",
-    end: "bottom 100px",
-    scrub: true,
+    end: "bottom center",
+    scrub: 1,
     markers: false,
   };
   return data;
@@ -17,8 +17,8 @@ const SecondScrollTrigger = (ref) => {
   let data = {
     trigger: ref,
     start: "-500px center",
-    end: "-500px 100px",
-    scrub: true,
+    end: "-500px center",
+    scrub: 2,
     markers: true,
   };
   return data;
@@ -126,28 +126,51 @@ export const MainPicAnimStart = (
       scrollTrigger: FirstScrollTrigger(FirstBlockRef.current),
       immediateRender: false,
       translateX: "-50%",
-      duration: 1,
       ease: Power2.easeIn,
     })
     .to(FirstWhiteBlockRef.current, {
       scrollTrigger: FirstScrollTrigger(FirstBlockRef.current),
       immediateRender: false,
       translateX: "0%",
-      duration: 1,
       ease: Power2.easeIn,
     })
     .to(MainTitleRef.current, {
       scrollTrigger: FirstScrollTrigger(FirstBlockRef.current),
       immediateRender: false,
-      duration: 2,
       ease: Power2.easeOut,
       y: 100,
     });
 };
 
-export const SecondAnimSection = (SeconSectionRef) => {
-  timeLine.to(SeconSectionRef.current, {
-    scrollTrigger: SecondScrollTrigger(SeconSectionRef.current),
-    y: 400,
-  });
+export const SecondAnimSection = (
+  SecondSectionRef,
+  SecondBlockRef,
+  SecondWhiteRef,
+  SecondPicRef
+) => {
+  timeLine
+    .to(SecondBlockRef.current, {
+      scrollTrigger: SecondScrollTrigger(SecondSectionRef.current),
+      immediateRender: false,
+      x: 0,
+      y: 0,
+      opacity: 1,
+      ease: Power2.easeOut,
+    })
+    .to(SecondPicRef.current, {
+      scrollTrigger: SecondScrollTrigger(SecondSectionRef.current),
+      immediateRender: false,
+      translateX: "-50%",
+      translateY: "-50%",
+      ease: Power2.easeOut,
+    })
+    .to(SecondWhiteRef.current, {
+      scrollTrigger: SecondScrollTrigger(SecondSectionRef.current),
+      immediateRender: false,
+      width: "850px",
+      height: "360px",
+      top: "40px",
+      left: "40px",
+      ease: Power2.easeOut,
+    });
 };
