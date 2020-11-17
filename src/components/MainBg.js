@@ -19,6 +19,7 @@ const MainBG = () => {
   let SecondBlockRef = useRef(null);
   let SecondWhiteRef = useRef(null);
   let SecondPicRef = useRef(null);
+  let SecondPicBgimg = useRef(null);
 
   const timeLine = gsap.timeline();
 
@@ -40,7 +41,8 @@ const MainBG = () => {
           SecondSectionRef,
           SecondBlockRef,
           SecondWhiteRef,
-          SecondPicRef
+          SecondPicRef,
+          SecondPicBgimg,
         )
       );
   });
@@ -62,6 +64,7 @@ const MainBG = () => {
           SecondBlockRef={SecondBlockRef}
           SecondWhiteRef={SecondWhiteRef}
           SecondPicRef={SecondPicRef}
+          SecondPicBgimg={SecondPicBgimg}
         />
       </Box>
     </>

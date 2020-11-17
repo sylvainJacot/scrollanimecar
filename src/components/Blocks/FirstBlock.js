@@ -3,7 +3,7 @@ import styled from "styled-components";
 const FirstBlock = (props) => {
   return (
     <>
-      <Container ref={props.FirstBlockRef}>FirstBlockRef</Container>
+      <Container ref={props.FirstBlockRef}></Container>
     </>
   );
 };
@@ -17,8 +17,23 @@ export const Container = styled.div`
   top: 270px;
   left: 50%;
   transform: translateX(150%);
-  background-color: red;
+  background: rgb(73, 77, 96);
+  background: linear-gradient(
+    45deg,
+    rgba(73, 77, 96, 1) 0%,
+    rgba(94, 102, 138, 1) 100%
+  );
   z-index: 1;
   box-shadow: 10px 10px 26px 0px rgba(0, 0, 0, 0.3);
   visibility: hidden;
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    bottom: 0;
+    background-color: red;
+  }
 `;

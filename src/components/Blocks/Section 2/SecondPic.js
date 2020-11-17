@@ -1,9 +1,12 @@
 import styled from "styled-components";
+import SecondPicBgimg from "../../images/ford_mustang_gt_v8_4k_8k_3840x2160_3840x2160.jpg";
 
 const SecondPic = (props) => {
   return (
     <>
-      <Container ref={props.SecondPicRef}>z-index 1</Container>
+      <Container ref={props.SecondPicRef}>
+        <BgImg ref={props.SecondPicBgimg} src={SecondPicBgimg} />
+      </Container>
     </>
   );
 };
@@ -12,7 +15,7 @@ export default SecondPic;
 
 export const Container = styled.div`
   position: absolute;
-  display: block;
+  display: flex;
   height: 400px;
   width: 400px;
   background-color: blue;
@@ -21,5 +24,11 @@ export const Container = styled.div`
   transform: translate(140%, 0%);
   z-index: 2;
   box-shadow: 10px 10px 26px 0px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+`;
 
+export const BgImg = styled.img`
+  width: auto;
+  height: 100%;
+  margin-left: 0;
 `;

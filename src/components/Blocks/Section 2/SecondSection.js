@@ -7,12 +7,11 @@ const SecondSection = (props) => {
   return (
     <>
       <Container ref={props.SecondSectionRef}>
-        z-index 0 parent
         <SecondBlock SecondBlockRef={props.SecondBlockRef} />
         <SecondSectionWhiteBG
           SecondWhiteRef={props.SecondWhiteRef}
         />
-        <SecondPic SecondPicRef={props.SecondPicRef} />
+        <SecondPic SecondPicRef={props.SecondPicRef} SecondPicBgimg={props.SecondPicBgimg}/>
       </Container>
     </>
   );
@@ -22,7 +21,7 @@ export default SecondSection;
 
 export const Container = styled.div`
   position: relative;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   height: 320px;
   width: 440px;
   margin-top: 480px;

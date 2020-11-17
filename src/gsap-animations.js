@@ -3,6 +3,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 let timeLine = gsap.timeline();
+let secondTimeLine = gsap.timeline();
+
 const FirstScrollTrigger = (ref) => {
   let data = {
     trigger: ref,
@@ -15,11 +17,12 @@ const FirstScrollTrigger = (ref) => {
 };
 const SecondScrollTrigger = (ref) => {
   let data = {
+    animation: secondTimeLine,
     trigger: ref,
     start: "-500px center",
     end: "-500px center",
-    scrub: 2,
-    markers: true,
+    scrub: 3,
+    // markers: true,
   };
   return data;
 };
@@ -100,7 +103,7 @@ export const MainPicAnimStart = (
         height: "400px",
         ease: Power2.easeOut,
       },
-      "-=4"
+      "-=4.2"
     )
     .to(
       FirstBlockRef.current,
@@ -146,9 +149,10 @@ export const SecondAnimSection = (
   SecondSectionRef,
   SecondBlockRef,
   SecondWhiteRef,
-  SecondPicRef
+  SecondPicRef,
+  SecondPicBgimg
 ) => {
-  timeLine
+  secondTimeLine
     .to(SecondBlockRef.current, {
       scrollTrigger: SecondScrollTrigger(SecondSectionRef.current),
       immediateRender: false,
@@ -171,6 +175,16 @@ export const SecondAnimSection = (
       height: "360px",
       top: "40px",
       left: "40px",
+      opacity: 1,
       ease: Power2.easeOut,
-    });
+    })
+    .to(
+      SecondPicBgimg.current,
+      {
+        scrollTrigger: SecondScrollTrigger(SecondSectionRef.current),
+        marginLeft: "-260px",
+        ease: Power2.easeOut,
+      },
+      "=+4"
+    );
 };
