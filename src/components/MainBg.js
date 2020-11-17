@@ -2,7 +2,7 @@ import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import styled from "styled-components";
 import MainPicHeader from "./MainPicHeader";
-import { MainPicAnimStart } from "../gsap-animations";
+import { MainPicAnimStart,SecondAnimSection } from "../gsap-animations";
 import SecondSection from "./Blocks/Section 2/SecondSection";
 
 const MainBG = () => {
@@ -17,6 +17,7 @@ const MainBG = () => {
   let SeconSectionRef = useRef(null);
   let SecondBlockRef = useRef(null);
   let SecondSectionWhiteBGRef = useRef(null);
+  let SecondPicRef = useRef(null);
 
   const timeLine = gsap.timeline();
 
@@ -31,7 +32,8 @@ const MainBG = () => {
         FirstBlockRef,
         FirstWhiteBlockRef
       )
-    );
+    )
+    .add(SecondAnimSection(SeconSectionRef,SecondBlockRef,SecondSectionWhiteBGRef,SecondPicRef))
   });
 
   return (
@@ -50,6 +52,7 @@ const MainBG = () => {
           SeconSectionRef={SeconSectionRef}
           SecondBlockRef={SecondBlockRef}
           SecondSectionWhiteBGRef={SecondSectionWhiteBGRef}
+          SecondPicRef={SecondPicRef}
         />
       </Box>
     </>

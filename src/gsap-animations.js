@@ -3,6 +3,26 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 let timeLine = gsap.timeline();
+const FirstScrollTrigger = (ref) => {
+  let data = {
+    trigger: ref,
+    start: "bottom center",
+    end: "bottom 100px",
+    scrub: true,
+    markers: false,
+  };
+  return data;
+};
+const SecondScrollTrigger = (ref) => {
+  let data = {
+    trigger: ref,
+    start: "-500px center",
+    end: "-500px 100px",
+    scrub: true,
+    markers: true,
+  };
+  return data;
+};
 
 export const MainPicAnimStart = (
   MustangPictureOverlayRef,
@@ -103,30 +123,31 @@ export const MainPicAnimStart = (
       ">-1"
     )
     .to(FirstBlockRef.current, {
-      scrollTrigger: {
-        trigger: FirstBlockRef.current,
-        start: "bottom center",
-        end: "bottom 100px",
-        scrub: true,
-        markers: false,
-      },
+      scrollTrigger: FirstScrollTrigger(FirstBlockRef.current),
       immediateRender: false,
       translateX: "-50%",
-      delay: 1,
-      duration: 2,
+      duration: 1,
       ease: Power2.easeIn,
     })
     .to(FirstWhiteBlockRef.current, {
-      scrollTrigger: {
-        trigger: FirstBlockRef.current,
-        start: "bottom center",
-        end: "bottom 100px",
-        scrub: true,
-        markers: false,
-      },
+      scrollTrigger: FirstScrollTrigger(FirstBlockRef.current),
       immediateRender: false,
       translateX: "0%",
-      duration: 2,
+      duration: 1,
       ease: Power2.easeIn,
+    })
+    .to(MainTitleRef.current, {
+      scrollTrigger: FirstScrollTrigger(FirstBlockRef.current),
+      immediateRender: false,
+      duration: 2,
+      ease: Power2.easeOut,
+      y: 100,
     });
+};
+
+export const SecondAnimSection = (SeconSectionRef) => {
+  timeLine.to(SeconSectionRef.current, {
+    scrollTrigger: SecondScrollTrigger(SeconSectionRef.current),
+    y: 400,
+  });
 };
