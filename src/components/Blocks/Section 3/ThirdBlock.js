@@ -1,49 +1,40 @@
 import styled from "styled-components";
-import SectionContent from "../Blocks/SectionContent/SectionContent"
+import SectionContent from "../SectionContent/SectionContent";
 
-const FirstBlock = (props) => {
+const ThirdBlock = (props) => {
   return (
     <>
-      <Container ref={props.FirstBlockRef}>
+      <Container ref={props.ThirdBlockRef}>
       <SectionContent
       Title="Title"
-      sectionNumber={"01"}
+      sectionNumber={"03"}
       Content={"Contrairement à une opinion répandue, le Lorem Ipsum n'est pas simplement du texte aléatoire."}
+      isCTA
       />
       </Container>
     </>
   );
 };
 
-export default FirstBlock;
+
+
+export default ThirdBlock;
 
 export const Container = styled.div`
   position: absolute;
   height: 320px;
-  width: 560px;
-  top: 270px;
-  left: 50%;
-  transform: translateX(150%);
+  width: 440px;
+  left: 300px;
   background: rgb(73, 77, 96);
   background: linear-gradient(
     45deg,
     rgba(73, 77, 96, 1) 0%,
     rgba(94, 102, 138, 1) 100%
   );
-  z-index: 1;
   box-shadow: 10px 10px 26px 0px rgba(0, 0, 0, 0.3);
-  visibility: hidden;
+  z-index: 3;
+  opacity: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-
-  &::before {
-    content: "";
-    display: block;
-    position: absolute;
-    height: 3px;
-    width: 100%;
-    bottom: 0;
-    background-color: red;
-  }
 `;

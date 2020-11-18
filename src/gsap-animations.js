@@ -4,6 +4,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 let timeLine = gsap.timeline();
 let secondTimeLine = gsap.timeline();
+let thirdTimeLine = gsap.timeline();
 
 const FirstScrollTrigger = (ref) => {
   let data = {
@@ -22,7 +23,18 @@ const SecondScrollTrigger = (ref) => {
     start: "-500px center",
     end: "-500px center",
     scrub: 3,
-    // markers: true,
+    markers: false,
+  };
+  return data;
+};
+
+const ThirdScrollTrigger = (ref) => {
+  let data = {
+    trigger: ref,
+    start: "-700px center",
+    end: "-700px center",
+    scrub: 4,
+    markers: true,
   };
   return data;
 };
@@ -187,4 +199,44 @@ export const SecondAnimSection = (
       },
       "=+4"
     );
+};
+
+export const ThirdAnimSection = (
+  ThirdMainBlockRef,
+  ThirdBlockRef,
+  ThirdWhiteBgRef,
+  ThirdPicRef,
+  ThirdPicContainerRef
+) => {
+  thirdTimeLine
+    .to(ThirdWhiteBgRef.current, {
+      scrollTrigger: ThirdScrollTrigger(ThirdMainBlockRef.current),
+      immediateRender: false,
+      left: "-16%",
+      top: "-32%",
+      ease: Power2.easeOut,
+    })
+    .to(ThirdBlockRef.current, {
+      scrollTrigger: ThirdScrollTrigger(ThirdMainBlockRef.current),
+      immediateRender: false,
+      height: 320,
+      width: 320,
+      left: "0",
+      opacity: 1,
+      ease: Power2.easeOut,
+    })
+    .to(ThirdPicContainerRef.current, {
+      scrollTrigger: ThirdScrollTrigger(ThirdMainBlockRef.current),
+      immediateRender: false,
+      width: "680px",
+      left: "48%",
+      top: "-16%",
+      ease: Power2.easeOut,
+    })
+    .to(ThirdPicRef.current, {
+      scrollTrigger: ThirdScrollTrigger(ThirdMainBlockRef.current),
+      immediateRender: false,
+      scale: 1.5,
+      ease: Power2.easeOut,
+    });
 };

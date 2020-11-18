@@ -2,8 +2,9 @@ import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import styled from "styled-components";
 import MainPicHeader from "./MainPicHeader";
-import { MainPicAnimStart, SecondAnimSection } from "../gsap-animations";
+import { MainPicAnimStart, SecondAnimSection, ThirdAnimSection } from "../gsap-animations";
 import SecondSection from "./Blocks/Section 2/SecondSection";
+import ThirdMainBlock from "./Blocks/Section 3/ThirdMainBlock";
 
 const MainBG = () => {
   let MainTitleRef = useRef(null);
@@ -20,6 +21,12 @@ const MainBG = () => {
   let SecondWhiteRef = useRef(null);
   let SecondPicRef = useRef(null);
   let SecondPicBgimg = useRef(null);
+
+  let ThirdMainBlockRef = useRef(null);
+  let ThirdBlockRef = useRef(null);
+  let ThirdWhiteBgRef = useRef(null);
+  let ThirdPicRef = useRef(null);
+  let ThirdPicContainerRef = useRef(null);
 
   const timeLine = gsap.timeline();
 
@@ -44,7 +51,14 @@ const MainBG = () => {
           SecondPicRef,
           SecondPicBgimg,
         )
-      );
+      )
+      .add(ThirdAnimSection(
+        ThirdMainBlockRef,
+        ThirdBlockRef,
+        ThirdWhiteBgRef,
+        ThirdPicRef,
+        ThirdPicContainerRef,
+      ))
   });
 
   return (
@@ -66,6 +80,13 @@ const MainBG = () => {
           SecondPicRef={SecondPicRef}
           SecondPicBgimg={SecondPicBgimg}
         />
+        <ThirdMainBlock
+          ThirdMainBlockRef={ThirdMainBlockRef}
+          ThirdBlockRef={ThirdBlockRef}
+          ThirdWhiteBgRef={ThirdWhiteBgRef}
+          ThirdPicRef={ThirdPicRef}
+          ThirdPicContainerRef={ThirdPicContainerRef}
+        />
       </Box>
     </>
   );
@@ -76,7 +97,7 @@ export default MainBG;
 export const Box = styled.div`
   position: relative;
   width: 100%;
-  height: 2000px;
+  height: 2500px;
   margin: auto;
   background-color: #494d60;
   opacity: 1;
