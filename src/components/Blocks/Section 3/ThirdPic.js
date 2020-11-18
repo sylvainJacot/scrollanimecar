@@ -17,8 +17,8 @@ export const Container = styled.div`
   position: absolute;
   display: flex;
   height: 320px;
-  width: 680px;
-  left: 48%;
+  width: 320px;
+  left: -300%;
   top: -16%;
   background-color: yellow;
   transform: translateX(-24px);

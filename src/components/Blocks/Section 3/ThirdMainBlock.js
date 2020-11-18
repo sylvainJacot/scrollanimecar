@@ -7,7 +7,7 @@ const ThirdMainBlock = (props) => {
   return (
     <>
       <Container ref={props.ThirdMainBlockRef}>
-        <ThirdBlock ThirdBlockRef={props.ThirdBlock} />
+        <ThirdBlock ThirdBlockRef={props.ThirdBlockRef} />
         <ThirdPic 
         ThirdPicContainerRef={props.ThirdPicContainerRef}
         ThirdPic={props.ThirdPicRef}
@@ -25,7 +25,7 @@ export const Container = styled.div`
   /* border: 1px solid red; */
   height: 320px;
   width: 320px;
-  margin-top: 480px;
+  margin-top: 600px;
   transform: translateX(-24px);
   z-index: 0;
 `;

@@ -2,7 +2,7 @@ import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import styled from "styled-components";
 import MainPicHeader from "./MainPicHeader";
-import { MainPicAnimStart, SecondAnimSection } from "../gsap-animations";
+import { MainPicAnimStart, SecondAnimSection, ThirdAnimSection } from "../gsap-animations";
 import SecondSection from "./Blocks/Section 2/SecondSection";
 import ThirdMainBlock from "./Blocks/Section 3/ThirdMainBlock";
 
@@ -51,7 +51,14 @@ const MainBG = () => {
           SecondPicRef,
           SecondPicBgimg
         )
-      );
+      )
+      .add(ThirdAnimSection(
+        ThirdMainBlockRef,
+        ThirdBlockRef,
+        ThirdWhiteBgRef,
+        ThirdPicRef,
+        ThirdPicContainerRef
+      ))
   });
 
   return (
