@@ -33,7 +33,7 @@ const ThirdScrollTrigger = (ref) => {
     trigger: ref,
     start: "-700px center",
     end: "-700px center",
-    scrub: 3,
+    scrub: 4,
     markers: true,
   };
   return data;
@@ -231,6 +231,12 @@ export const ThirdAnimSection = (
       width: "680px",
       left: "48%",
       top: "-16%",
+      ease: Power2.easeOut,
+    })
+    .to(ThirdPicRef.current, {
+      scrollTrigger: ThirdScrollTrigger(ThirdMainBlockRef.current),
+      immediateRender: false,
+      scale: 1.5,
       ease: Power2.easeOut,
     });
 };

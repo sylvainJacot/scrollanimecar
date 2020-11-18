@@ -1,9 +1,16 @@
 import styled from "styled-components";
+import SectionContent from "../Blocks/SectionContent/SectionContent"
 
 const FirstBlock = (props) => {
   return (
     <>
-      <Container ref={props.FirstBlockRef}></Container>
+      <Container ref={props.FirstBlockRef}>
+      <SectionContent
+      Title="Title"
+      sectionNumber={"01"}
+      Content={"Contrairement à une opinion répandue, le Lorem Ipsum n'est pas simplement du texte aléatoire."}
+      />
+      </Container>
     </>
   );
 };
@@ -26,6 +33,9 @@ export const Container = styled.div`
   z-index: 1;
   box-shadow: 10px 10px 26px 0px rgba(0, 0, 0, 0.3);
   visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &::before {
     content: "";

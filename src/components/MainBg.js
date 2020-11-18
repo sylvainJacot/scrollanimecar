@@ -49,7 +49,7 @@ const MainBG = () => {
           SecondBlockRef,
           SecondWhiteRef,
           SecondPicRef,
-          SecondPicBgimg
+          SecondPicBgimg,
         )
       )
       .add(ThirdAnimSection(
@@ -57,7 +57,7 @@ const MainBG = () => {
         ThirdBlockRef,
         ThirdWhiteBgRef,
         ThirdPicRef,
-        ThirdPicContainerRef
+        ThirdPicContainerRef,
       ))
   });
 
@@ -97,7 +97,7 @@ export default MainBG;
 export const Box = styled.div`
   position: relative;
   width: 100%;
-  height: 3000px;
+  height: 2500px;
   margin: auto;
   background-color: #494d60;
   opacity: 1;
