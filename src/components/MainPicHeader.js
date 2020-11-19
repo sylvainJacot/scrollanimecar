@@ -7,21 +7,23 @@ import FirstWhiteBlock from "./Blocks/FirstWhiteBlock";
 const MainPicHeader = (props) => {
   return (
     <>
-    <Wrapper>
+      <Wrapper>
         <MustangPictureMask ref={props.MustangPictureMaskRef}>
-          <MustangPicture src={MustangPictureSrc} ref={props.MustangPictureRef} />
+          <MustangPicture
+            src={MustangPictureSrc}
+            ref={props.MustangPictureRef}
+          />
 
           <MustangPictureOverlay
             src={MustangPictureSrc2}
             ref={props.MustangPictureOverlayRef}
           />
-      </MustangPictureMask>
+        </MustangPictureMask>
 
-      <Underline ref={props.UnderlineRef}></Underline>
-      <MainTitle ref={props.MainTitleRef}>MUSTANG</MainTitle>
-      <FirstBlock FirstBlockRef={props.FirstBlockRef} />
-      <FirstWhiteBlock FirstWhiteBlockRef={props.FirstWhiteBlockRef} />
-
+        <Underline ref={props.UnderlineRef}></Underline>
+        <MainTitle ref={props.MainTitleRef}>TESLA</MainTitle>
+        <FirstBlock FirstBlockRef={props.FirstBlockRef} />
+        <FirstWhiteBlock FirstWhiteBlockRef={props.FirstWhiteBlockRef} />
       </Wrapper>
     </>
   );
@@ -60,32 +62,31 @@ export const MustangPictureOverlay = styled.img`
   width: 100%;
 `;
 
-
 export const MainTitle = styled.h1`
-    position: absolute;
-    font-size: 40px;
-    font-weight: 600;
-    letter-spacing: 8px;
-    color: white;
-    z-index: 2;
-    top: -32px;
-    left: 0;
-    right: 0;
-    text-align: center;
-    opacity: 0;
-    margin: 0;
+  position: absolute;
+  font-family: "Oswald";
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: 16px;
+  color: white;
+  z-index: 2;
+  top: -32px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  opacity: 0;
+  margin: 0;
 `;
 export const Underline = styled.div`
-    position: absolute;
-    display: block;
-    content: "";
-    height: 8px;
-    background-color: red;
-    z-index: 1;
-    top: 0;
-    left: calc(50% - 4px);
-    transform: translate(-50%, -50%);
-    width: 0;
-    opacity: 0;
+  position: absolute;
+  display: block;
+  content: "";
+  height: 8px;
+  background-color: red;
+  z-index: 1;
+  top: 0;
+  left: calc(50% - 8px);
+  transform: translate(-50%, -50%);
+  width: 0;
+  opacity: 0;
 `;
-

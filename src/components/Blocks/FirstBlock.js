@@ -6,9 +6,9 @@ const FirstBlock = (props) => {
     <>
       <Container ref={props.FirstBlockRef}>
       <SectionContent
-      Title="Title"
+      Title="PERFORMANCE"
       sectionNumber={"01"}
-      Content={"Contrairement à une opinion répandue, le Lorem Ipsum n'est pas simplement du texte aléatoire."}
+      Content={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam commodo fringilla nulla a malesuada. Integer sit amet sapien neque."}
       />
       </Container>
     </>

@@ -24,6 +24,7 @@ export const Container = styled.div`
   &::after {
     position: absolute;
     content: "${(props) => props.sectionNumber}";
+    font-family: "Oswald";
     font-size: 96px;
     font-weight: 600;
     letter-spacing: 8px;
@@ -31,7 +32,7 @@ export const Container = styled.div`
     right: 0;
     bottom: 0;
     opacity: 0.1;
-    height: 96px;
+    height: 116px;
   }
 `;
 
@@ -39,9 +40,10 @@ export const Title = styled.h3`
   display: inline;
   width: min-content;
   position: relative;
+  font-family: "Oswald";
   font-size: 32px;
   font-weight: 600;
-  letter-spacing: 8px;
+  letter-spacing: 4px;
   color: white;
   margin: 0;
 

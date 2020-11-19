@@ -27,14 +27,13 @@ const SecondScrollTrigger = (ref) => {
   };
   return data;
 };
-
 const ThirdScrollTrigger = (ref) => {
   let data = {
     trigger: ref,
     start: "-700px center",
     end: "-700px center",
     scrub: 4,
-    markers: true,
+    markers: false,
   };
   return data;
 };
@@ -68,7 +67,7 @@ export const MainPicAnimStart = (
     .to(
       UnderlineRef.current,
       {
-        width: 236,
+        width: 150,
         duration: 0.6,
         opacity: 1,
         ease: Power2.easeOut,
@@ -84,8 +83,9 @@ export const MainPicAnimStart = (
     .to(MainTitleRef.current, {
       duration: 2,
       ease: Power2.easeOut,
-      y: 240,
-      fontSize: 104,
+      y: 170,
+      letterSpacing: 42,
+      fontSize: 160,
       textShadow: "3px 3px 10px rgba(0, 0, 0, 0.3)",
     })
     .to(
