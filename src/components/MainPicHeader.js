@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from "styled-components";
 import MustangPictureSrc from "./images/low-key-Mustang-Toy-1423495-pxhere.com.jpg";
 import MustangPictureSrc2 from "./images/low-key-Mustang-Toy-1423495.jpg";
