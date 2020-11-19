@@ -6,9 +6,9 @@ const ThirdBlock = (props) => {
     <>
       <Container ref={props.ThirdBlockRef}>
       <SectionContent
-      Title="Title"
+      Title="AUTOPILOT"
       sectionNumber={"03"}
-      Content={"Contrairement à une opinion répandue, le Lorem Ipsum n'est pas simplement du texte aléatoire."}
+      Content={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam commodo fringilla nulla a malesuada. Integer sit amet sapien neque."}
       isCTA
       />
       </Container>

@@ -27,7 +27,7 @@ position: relative;
     display: block;
     height: 2px;
     position: absolute;
-    background-color: red;
+    background-color: #DE0031;
     left: 0;
     right: 0;
     bottom: -1px;
