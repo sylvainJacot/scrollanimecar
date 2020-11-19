@@ -88,6 +88,7 @@ const MainBG = () => {
           ThirdPicRef={ThirdPicRef}
           ThirdPicContainerRef={ThirdPicContainerRef}
         />
+        <Copyright>Pictures from caricos.com</Copyright>
       </Box>
     </>
   );
@@ -104,4 +105,14 @@ export const Box = styled.div`
   opacity: 1;
   margin-top: 0;
   border-radius: 0px;
+`;
+
+export const Copyright = styled.p`
+margin-top: 300px;
+font-family: "Oswald";
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: white;
+    text-align: center;
 `;
