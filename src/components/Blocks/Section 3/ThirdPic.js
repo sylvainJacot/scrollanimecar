@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 import styled from "styled-components";
-import ThirdPicBgimg from "../../images/ryan-spencer-c-NEiPIxpYI-unsplash.jpg";
+import ThirdPicBgimg from "../../images/Tesla2.jpg";
 
 const ThirdPic = (props) => {
   return (

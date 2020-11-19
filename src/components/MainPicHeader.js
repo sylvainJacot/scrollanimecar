@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
-import MustangPictureSrc from "./images/low-key-Mustang-Toy-1423495-pxhere.com.jpg";
-import MustangPictureSrc2 from "./images/low-key-Mustang-Toy-1423495.jpg";
+import MustangPictureSrc from "./images/TeslaBase.jpg";
+import MustangPictureSrc2 from "./images/TeslaLight.jpg";
 import FirstBlock from "../components/Blocks/FirstBlock";
 import FirstWhiteBlock from "./Blocks/FirstWhiteBlock";
 
