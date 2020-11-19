@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from "styled-components";
 import SecondPicBgimg from "../../images/ford_mustang_gt_v8_4k_8k_3840x2160_3840x2160.jpg";
 

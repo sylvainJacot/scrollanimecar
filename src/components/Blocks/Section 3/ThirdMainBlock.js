@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from "styled-components";
 import ThirdBlock from "../Section 3/ThirdBlock";
 import ThirdPic from "../Section 3/ThirdPic";

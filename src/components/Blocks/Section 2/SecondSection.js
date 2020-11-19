@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import React from 'react';
 import SecondBlock from "./SecondBlock";
 import SecondPic from "./SecondPic";
 import SecondSectionWhiteBG from "./SecondSectionWhiteBG";

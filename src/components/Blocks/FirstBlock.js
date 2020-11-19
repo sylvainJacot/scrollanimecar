@@ -1,5 +1,6 @@
+import React from 'react';
 import styled from "styled-components";
-import SectionContent from "../Blocks/SectionContent/SectionContent"
+import SectionContent from "../Blocks/SectionContent/SectionContent";
 
 const FirstBlock = (props) => {
   return (
